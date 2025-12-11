@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>カート</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>カートの中身</h1>
+  <div id="cart-items"></div>
+  <p id="total">合計: 0円</p> <!-- 初期値を0円にしておく -->
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function renderCart() {
+      let cartDiv = document.getElementById("cart-items");
+      cartDiv.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartDiv.innerHTML = "<p>カートは空です。</p>";
+        document.getElementById("total").innerText = "合計: 0円"; // 空でも必ず表示
+      } else {
+        cart.forEach((item, index) => {
+          cartDiv.innerHTML += `
+            <p>
+              ${item.name} - ${item.price}円
+              <button onclick="removeFromCart(${index})">削除</button>
+            </p>
+          `;
+          total += item.price;
+        });
+        document.getElementById("total").innerText = `合計: ${total}円`;
+      }
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1); // 商品削除
+      localStorage.setItem("cart", JSON.stringify(cart)); // 更新
+      renderCart(); // 再描画
+    }
+
+    renderCart(); // 初期表示
+  </script>
+
+</body>
+</html>

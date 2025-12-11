@@ -1,0 +1,188 @@
+h1 {
+  text-align: center;
+  font-size: 3.5em;
+  font-weight: 900;
+  letter-spacing: 3px;
+  padding: 25px 20px;
+
+  /* 白いロゴ文字 */
+  color: #ffffff;
+
+  /* ロゴっぽい立体感と光 */
+  text-shadow:
+    0 0 8px #ffffff,
+    0 0 15px #ffe6ff,
+    0 0 25px #ffb3ff,
+    0 0 40px #ff66cc,
+    2px 2px 4px rgba(0,0,0,0.2);
+
+  /* ロゴの光がゆっくり変化する */
+  animation: logoGlow 3s infinite alternate ease-in-out;
+}
+
+@keyframes logoGlow {
+  0% {
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #ffe6ff,
+      0 0 30px #ffb3ff,
+      0 0 40px #ff66cc;
+  }
+  100% {
+    text-shadow:
+      0 0 20px #fff,
+      0 0 40px #ffffff,
+      0 0 60px #ffd6ff,
+      0 0 80px #ff99dd;
+  }
+}
+
+ 
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow: auto;
+
+  background:
+    radial-gradient(circle, rgba(255,153,204,0.2) 1px, transparent 1px),
+    #000000;
+  background-size: 30px 30px;
+}
+
+.star {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  animation: twinkle 2s infinite alternate, shootingStar 8s linear infinite;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.2; }
+  to   { opacity: 1; }
+}
+
+@keyframes shootingStar {
+  from { transform: translate(0, 0); opacity: 1; }
+  to   { transform: translate(500px, 500px); opacity: 0; }
+}
+
+.clothes-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.clothes-item {
+  background: transparent;
+  padding: 15px;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.item-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.item-name {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  color:#fff799
+}
+
+
+.item-price {
+  font-size: 16px;
+  color: #e60073;
+  margin-bottom: 10px;
+}
+
+
+.add-cart:hover {
+  background: #cc0066;
+}
+
+.add-cart {
+  background: #ff66b2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart {
+  background: #ffffffcc; /* 半透明の白でふんわり */
+  border: 2px solid #ff99cc;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  color: #ff3399;
+  box-shadow: 0 0 15px #ffccf5;
+  backdrop-filter: blur(5px); /* 透明感のあるガラス風 */
+}
+
+.cart h2 {
+  color: #ffff66;
+  text-shadow:
+    0 0 10px #ffff99,
+    0 0 20px #ffccff,
+    0 0 30px #ff99ff;
+}
+
+.cute-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ffccf5;
+  color: #ff0088;
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-size: 16px;
+  box-shadow: 0 0 15px #ff99dd;
+  animation: popupFade 0.3s ease-out;
+  z-index: 9999;
+}
+
+.cute-popup.hide {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.5s;
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flying-star {
+  position: fixed;
+  font-size: 25px;
+  color: #ffccff;
+  pointer-events: none;
+  animation: flyStar 1.5s ease-out forwards;
+  text-shadow: 0 0 10px #ff99ff, 0 0 20px #ff66cc;
+}
+
+@keyframes flyStar {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, -150px) scale(2);
+    opacity: 0;
+  }
+}
