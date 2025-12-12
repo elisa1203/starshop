@@ -207,6 +207,13 @@ body {
   background: transparent; /* ← これで白い四角が消える */
 }
 
+.mobile-view {
+  width: 390px; /* iPhone幅 */
+  margin: 0 auto;
+  border: 2px solid #ff66cc;
+  border-radius: 20px;
+}
+
 .switch-btn {
   background: #ff66cc;
   color: white;
@@ -215,12 +222,5 @@ body {
   border: none;
   cursor: pointer;
   font-weight: bold;
-}
-
-.mobile-view {
-  width: 390px; /* iPhone幅 */
-  margin: 0 auto;
-  border: 2px solid #ff66cc;
-  border-radius: 20px;
 }
 
