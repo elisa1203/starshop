@@ -251,14 +251,28 @@ body {
   display: block;
 }
 
-/* スマホ実機で見たときは画面幅にフィットさせる */
+/* スマホ実機では画面幅に完全フィット */
 @media (max-width: 600px) {
-  .mobile-view {
-    width: 100%;        /* ← スマホ画面にピッタリ合わせる */
-    margin: 0;
-    border-radius: 0;   /* ← 画面にぴったり合わせたいなら角丸も消す */
-    border: none;       /* ← 枠を消したい場合はこれ */
+  body.mobile-view {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  .clothes-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .clothes-item img {
+    width: 100%;
+    height: auto;
   }
 }
+
 
 
