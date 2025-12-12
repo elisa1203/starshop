@@ -235,3 +235,20 @@ body {
   }
 }
 
+.mobile-view .clothes-container {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+.mobile-view .clothes-item img {
+  width: 100%;
+}
+
+.clothes-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
