@@ -1,282 +1,259 @@
-h1 {
-  text-align:center;
-  font-size: 3.5em;
-  font-weight: 900;
-  letter-spacing: 3px;
-  padding: 25px 20px;
+h1 { 
+text-align:center; 
+font-size: 3.5em; 
+font-weight: 900; 
+letter-spacing: 3px; 
+padding: 25px 20px; 
+/* 白いロゴ文字 */ 
+color: #ffffff; 
 
-  /* 白いロゴ文字 */
-  color: #ffffff;
-
-  /* ロゴっぽい立体感と光 */
-  text-shadow:
-    0 0 8px #ffffff,
-    0 0 15px #ffe6ff,
-    0 0 25px #ffb3ff,
-    0 0 40px #ff66cc,
-    2px 2px 4px rgba(0,0,0,0.2);
-
-  /* ロゴの光がゆっくり変化する */
-  animation: logoGlow 3s infinite alternate ease-in-out;
-}
-
-@keyframes logoGlow {
-  0% {
-    text-shadow:
-      0 0 10px #fff,
-      0 0 20px #ffe6ff,
-      0 0 30px #ffb3ff,
-      0 0 40px #ff66cc;
-  }
-  100% {
-    text-shadow:
-      0 0 20px #fff,
-      0 0 40px #ffffff,
-      0 0 60px #ffd6ff,
-      0 0 80px #ff99dd;
-  }
-}
-
+/* ロゴっぽい立体感と光 */
+ text-shadow: 
+ 0 0 8px #ffffff, 
+ 0 0 15px #ffe6ff, 
+ 0 0 25px #ffb3ff, 
+ 0 0 40px #ff66cc, 
+ 2px 2px 4px rgba(0,0,0,0.2); 
  
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  position: relative;
-  overflow: auto;
-
-  background:
-    radial-gradient(circle, rgba(255,153,204,0.2) 1px, transparent 1px),
-    #000000;
-  background-size: 30px 30px;
-}
-
-.star {
-  position: absolute;
-  color: white;
-  font-size: 20px;
-  animation: twinkle 2s infinite alternate, shootingStar 8s linear infinite;
-}
-
-@keyframes twinkle {
-  from { opacity: 0.2; }
-  to   { opacity: 1; }
-}
-
-@keyframes shootingStar {
-  from { transform: translate(0, 0); opacity: 1; }
-  to   { transform: translate(500px, 500px); opacity: 0; }
-}
-
-.clothes-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
-}
-
-.clothes-item {
-  background: transparent;
-  padding: 15px;
-  text-align: center;
-  border: none;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.item-photo {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.item-name {
-  font-size: 18px;
-  margin: 10px 0 5px;
-  color:#fff799
-}
-
-
-.item-price {
-  font-size: 16px;
-  color: #e60073;
-  margin-bottom: 10px;
-}
-
-.buy-btn {
-  display: inline-block;
-  background: #ff66cc;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.2s;
-  border: none;
-  box-shadow: none;
-  outline: none;
-}
-
-.buy-btn:focus {
-  outline: none;
-  box-shadow: 0 0 15px #ffccff, 0 0 30px #ff66cc;
-}
-
-.buy-btn:hover {
-  box-shadow: 0 0 15px #ffccff, 0 0 30px #ff66cc;
-}
-
-.cart {
- background: #ffffffcc; /* 半透明の白でふんわり */
-  border: 2px solid #ff99cc;
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px;
-  color: #ff3399;
-  box-shadow: 0 0 15px #ffccf5;
-  backdrop-filter: blur(5px); /* 透明感のあるガラス風 */
-}
-
-.product-card {
-  background: transparent; /* ← 白く見えるならこれで消す */
-  padding: 10px;
-  border: none;
-}
-
-
-.cart h2 {
-  color: #ffff66;
-  text-shadow:
-    0 0 10px #ffff99,
-    0 0 20px #ffccff,
-    0 0 30px #ff99ff;
-}
-
-.cute-popup {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #ffccf5;
-  color: #ff0088;
-  padding: 15px 20px;
-  border-radius: 15px;
-  font-size: 16px;
-  box-shadow: 0 0 15px #ff99dd;
-  animation: popupFade 0.3s ease-out;
-  z-index: 9999;
-}
-
-.cute-popup.hide {
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: 0.5s;
-}
-
-@keyframes popupFade {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.flying-star {
-  position: fixed;
-  font-size: 25px;
-  color: #ffccff;
-  pointer-events: none;
-  animation: flyStar 1.5s ease-out forwards;
-  text-shadow: 0 0 10px #ff99ff, 0 0 20px #ff66cc;
-}
-
-@keyframes flyStar {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(100px, -150px) scale(2);
-    opacity: 0;
-  }
-}
-
-.product-card {
-  background: transparent; /* ← これで白い四角が消える */
-}
-
-.mobile-view {
-  width: 390px; /* iPhone幅 */
-  margin: 0 auto;
-  border: 2px solid #ff66cc;
-  border-radius: 20px;
-}
-
-.switch-btn {
-  background: #ff66cc;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.mobile-view .clothes-container {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* スマホ幅のときだけ2列にする */
-@media (max-width: 600px) {
-  .clothes-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.mobile-view .clothes-container {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 10px;
-}
-
-.mobile-view .clothes-item img {
-  width: 100%;
-}
-
-.clothes-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* スマホ実機では画面幅に完全フィット */ 
-@media (max-width: 600px) { 
-body.mobile-view { 
-width: 100% !important; 
-max-width: 100% !important; 
-margin: 0 !important; 
-padding: 0 !important; 
-border: none !important;
-border-radius: 0 !important; 
-transform: scale(3.0);
-
-}
-
-
-
-  .clothes-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .clothes-item img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-
-
+ /* ロゴの光がゆっくり変化する */ 
+ animation: logoGlow 3s infinite alternate ease-in-out;
+  } 
+ 
+ @keyframes logoGlow { 
+ 0% { 
+ text-shadow: 
+ 0 0 10px #fff, 
+ 0 0 20px #ffe6ff, 
+ 0 0 30px #ffb3ff, 
+ 0 0 40px #ff66cc; 
+ } 
+ 100% {
+  text-shadow: 
+  0 0 20px #fff, 
+  0 0 40px #ffffff, 
+  0 0 60px #ffd6ff, 
+  0 0 80px #ff99dd;
+   } 
+  } 
+  
+  body { 
+  margin: 0; 
+  padding: 0; 
+  min-height: 100vh; 
+  position: relative; 
+  overflow: auto; 
+  background: radial-gradient(circle, rgba(255,153,204,0.2) 1px, transparent 1px), 
+  #000000; 
+  background-size: 30px 30px; 
+  } 
+  
+  .star { 
+  position: absolute; 
+  color: white; 
+  font-size: 20px; 
+  animation: twinkle 2s infinite alternate, shootingStar 8s linear infinite; 
+  } 
+  
+  @keyframes twinkle { 
+  from { opacity: 0.2; } 
+  to { opacity: 1; } 
+  } 
+  
+  @keyframes shootingStar { 
+  from { transform: translate(0, 0); opacity: 1; } 
+  to { transform: translate(500px, 500px); opacity: 0;  }
+   }
+   
+    .clothes-container { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; padding: 20px; } 
+    
+    .clothes-item { 
+    background: transparent; 
+    padding: 15px; 
+    text-align: center; 
+    border: none; 
+    border-radius: 8px; 
+    box-sizing: border-box; 
+    } 
+    
+    .item-photo { 
+    width: 100%; 
+    height: auto; 
+    border-radius: 5px; 
+    }
+    
+     .item-name { 
+     font-size: 18px; 
+     margin: 10px 0 5px;
+      color:#fff799
+       } 
+       
+       .item-price { 
+       font-size: 16px; 
+       color: #e60073; 
+       margin-bottom: 10px; 
+       } 
+       
+       .buy-btn { 
+       display: inline-block; 
+       background: #ff66cc; 
+       color: white; 
+       padding: 12px 24px; 
+       border-radius: 999px; 
+       text-decoration: none; 
+       font-weight: bold; 
+       transition: 0.2s; 
+       border: none; 
+       box-shadow: none; 
+       outline: none; 
+       }
+       
+        .buy-btn:focus { 
+        outline: none; 
+        box-shadow: 0 0 15px #ffccff, 0 0 30px #ff66cc; 
+        }
+        
+         .buy-btn:hover { 
+         box-shadow: 0 0 15px #ffccff, 0 0 30px #ff66cc; 
+         } 
+         
+         .cart {
+          background: #ffffffcc; /* 半透明の白でふんわり */ 
+          border: 2px solid #ff99cc; 
+          border-radius: 15px; 
+          padding: 20px; 
+          margin: 20px; 
+          color: #ff3399;
+         box-shadow: 0 0 15px #ffccf5; 
+        backdrop-filter: blur(5px); /* 透明感のあるガラス風 */ 
+       } 
+       
+       .product-card { 
+       background: transparent; /* ← 白く見えるならこれで消す */ 
+       padding: 10px; 
+       border: none;
+        }
+        
+         .cart h2 { 
+         color: #ffff66; 
+         text-shadow: 0 0 10px #ffff99, 0 0 20px #ffccff, 0 0 30px #ff99ff; 
+         } 
+         
+         .cute-popup { 
+         position: fixed; 
+         top: 20px; 
+         right: 20px; 
+         background: #ffccf5; 
+         color: #ff0088; 
+         padding: 15px 20px; 
+         border-radius: 15px;
+          font-size: 16px; 
+          box-shadow: 0 0 15px #ff99dd; 
+          animation: popupFade 0.3s ease-out; 
+          z-index: 9999; 
+          } 
+          
+          .cute-popup.hide 
+          { opacity: 0; 
+          transform: translateY(-10px); 
+          transition: 0.5s; 
+          } 
+          
+          @keyframes popupFade { 
+          from { 
+          opacity: 0; 
+          transform: translateY(-10px);
+           } t
+           o { opacity: 1; transform: translateY(0); 
+           } 
+           } 
+           
+           .flying-star {
+            position: fixed; 
+            font-size: 25px;
+             color: #ffccff; 
+             pointer-events: none; 
+             animation: flyStar 1.5s ease-out forwards; 
+             text-shadow: 0 0 10px #ff99ff, 0 0 20px #ff66cc; 
+             } 
+             
+             @keyframes flyStar { 
+             0% { 
+             transform: translate(0, 0) scale(1); 
+             opacity: 1; 
+             
+            } 
+            100% { t
+            ransform: translate(100px, -150px) scale(2); 
+            opacity: 0; 
+            } 
+            }
+            
+           .product-card { 
+           background: transparent; /* ← これで白い四角が消える */ 
+           } 
+           
+           .mobile-view { 
+           width: 390px; /* iPhone幅 */ 
+           margin: 0 auto; 
+           border: 2px solid #ff66cc; 
+           border-radius: 20px; 
+           } 
+           
+           .switch-btn { 
+           background: #ff66cc; 
+           color: white; 
+           padding: 10px 20px; 
+           border-radius: 999px; 
+           border: none; 
+           cursor: pointer; 
+           font-weight: bold;
+            } 
+            
+            .mobile-view .clothes-container { 
+            grid-template-columns: repeat(2, 1fr); 
+            } 
+            
+            /* スマホ幅のときだけ2列にする */
+             @media (max-width: 600px) {
+              .clothes-container { 
+              grid-template-columns: repeat(2, 1fr); 
+              } 
+              }
+              
+               .mobile-view .clothes-container { 
+               grid-template-columns: repeat(2, 1fr); 
+               gap: 10px; 
+               padding: 10px; 
+               } 
+               
+               .mobile-view .clothes-item img { 
+               width: 100%; 
+               }
+               
+                .clothes-item img { 
+                width: 100%; 
+                height: auto; 
+                display: block; 
+                } 
+                
+                /* スマホで「スマホ版」に切り替えたとき、画面の端にピンク枠を重ねる */ 
+                @media (max-width: 600px) { 
+                body.mobile-view { 
+                width: 100%; 
+                height: 100%;
+                 margin: 0; 
+                 padding: 0; /* ここがスマホ画面と重なるピンク枠 */ 
+                 border: 5px solid #ff66cc; 
+                 box-sizing: border-box; /* ← 枠がはみ出さないために必須 */ 
+                 } 
+                 }
+                 
+            
+                  .clothes-item img { 
+                  width: 100%; 
+                  height: auto; 
+                  }
+                   }
