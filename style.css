@@ -257,3 +257,15 @@ color: #ffffff;
                   height: auto; 
                   }
                    }
+                   
+                   /* スマホで「スマホ版」に切り替えたとき、中央にぴったり合わせる */
+@media (max-width: 600px) {
+  body.mobile-view {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 5px solid #ff66cc;
+    box-sizing: border-box;
+  }
+}
