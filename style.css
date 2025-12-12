@@ -251,4 +251,14 @@ body {
   display: block;
 }
 
+/* スマホ実機で見たときは画面幅にフィットさせる */
+@media (max-width: 600px) {
+  .mobile-view {
+    width: 100%;        /* ← スマホ画面にピッタリ合わせる */
+    margin: 0;
+    border-radius: 0;   /* ← 画面にぴったり合わせたいなら角丸も消す */
+    border: none;       /* ← 枠を消したい場合はこれ */
+  }
+}
+
 
