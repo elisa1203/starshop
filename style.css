@@ -293,6 +293,14 @@ color: #ffffff;
   overflow: hidden;
 }
 
+/* ✅ スマホ用（幅が480px以下のとき） */
+@media (max-width: 480px) {
+  #coordinate-area {
+    width: 90vw;       /* 画面の90%を使う */
+    height: 90vw;      /* 正方形に近くする */
+    max-width: none;   /* PC用の制限を解除 */
+  }
+}
 
 .item-panel {
   width: 30%;
@@ -308,6 +316,13 @@ color: #ffffff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .genre-buttons button {
+    padding: 14px 0;
+    font-size: 18px;   /* スマホで見やすく */
+  }
 }
 
 .genre-items img {
