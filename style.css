@@ -450,3 +450,7 @@ display: inline-block;
   cursor: pointer;
   box-shadow: 0 0 6px #ffb6d9;
 }
+
+.hide-ui {
+  display: none !important;
+}

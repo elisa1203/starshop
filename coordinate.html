@@ -8,14 +8,14 @@
 </head>
 
 <body>
-    
- <h2>コーデを作る</h2>
+
+<h2>コーデを作る</h2>
 
 <div class="coordinate-wrapper">
 
   <!-- キャンバス -->
   <div id="coordinate-area"></div>
-  
+
   <!-- ジャンル選択 -->
   <div class="item-panel">
 
@@ -23,7 +23,7 @@
       <button data-genre="tops">トップス</button>
       <button data-genre="bottoms">ボトムス</button>
       <button data-genre="bags">バッグ</button>
-    <button data-genre="accessories">アクセサリー</button>
+      <button data-genre="accessories">アクセサリー</button>
     </div>
 
     <!-- 商品リスト -->
@@ -41,21 +41,21 @@
       <div class="genre-items" id="bags" style="display:none;">
         <img src="camo-bag.png" data-slot="bag">
       </div>
-      
-　　<div class="genre-items" id="accessories" style="display:none;">
+
+      <div class="genre-items" id="accessories" style="display:none;">
         <img src="necklace-removebg-preview.png" data-slot="accessories">
       </div>
 
     </div>
 
   </div>
-  
-  </div>
 
-<div>
-   <button id="save-btn">保存</button>
-   </div>
+</div>
 
+<!-- 保存ボタン -->
+<button id="save-btn">保存</button>
+
+<!-- 背景色ボタン -->
 <div class="bg-colors">
   <button data-color="#ff0000">❤️</button>
   <button data-color="#ff66b2">🩷</button>
@@ -69,14 +69,14 @@
   <button data-color="#ffffff">🤍</button>
 </div>
 
-   </div>
-   
+<!-- ✅ html2canvas 読み込み（必ずここ！） -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <script>
 /* --- ジャンル切り替え --- */
 document.querySelectorAll(".genre-buttons button").forEach(btn => {
   btn.addEventListener("click", () => {
     const genre = btn.dataset.genre;
-
     document.querySelectorAll(".genre-items").forEach(g => g.style.display = "none");
     document.getElementById(genre).style.display = "block";
   });
@@ -90,49 +90,39 @@ document.querySelectorAll(".genre-items img").forEach(img => {
   });
 });
 
-/* --- キャンバスにアイテムを配置（完成版） --- */
+/* --- キャンバスにアイテムを配置 --- */
 function placeItemInSlot(src, slot) {
   const area = document.getElementById("coordinate-area");
 
-  // ✅ wrapper（画像＋削除＋リサイズ）
   const wrapper = document.createElement("div");
   wrapper.classList.add("placed-wrapper");
   wrapper.style.position = "absolute";
-  wrapper.style.zIndex = "2000";
 
-  // ✅ 画像
   const img = document.createElement("img");
   img.src = src;
   img.classList.add("placed-item");
   img.style.position = "absolute";
-  img.style.zIndex = "2001";
   img.style.width = slot === "bag" ? "150px" : "250px";
 
-  // ✅ 削除ボタン（左上）
   const del = document.createElement("button");
   del.classList.add("delete-btn");
   del.textContent = "×";
-  del.style.zIndex = "2002";
   del.addEventListener("click", () => wrapper.remove());
 
-  // ✅ リサイズハンドル（右下）
   const handle = document.createElement("div");
   handle.classList.add("resize-handle");
-  handle.style.zIndex = "2002";
-   handle.textContent = "↖️";   // ← これを追加！
+  handle.textContent = "↖️";
 
-  // ✅ wrapper に追加
   wrapper.appendChild(img);
   wrapper.appendChild(del);
   wrapper.appendChild(handle);
   area.appendChild(wrapper);
 
-  // ✅ 初期位置
   const positions = {
-    top:   { left: "50%", top: "10%" },
-    bottom:{ left: "50%", top: "60%" },
-    bag:   { left: "80%", top: "40%" },
-    accessories: {left: "60%", top: "40%" }
+    top: { left: "50%", top: "10%" },
+    bottom: { left: "50%", top: "60%" },
+    bag: { left: "80%", top: "40%" },
+    accessories: { left: "60%", top: "40%" }
   };
 
   const pos = positions[slot];
@@ -140,12 +130,11 @@ function placeItemInSlot(src, slot) {
   wrapper.style.top = pos.top;
   wrapper.style.transform = "translate(-50%, -50%)";
 
-  // ✅ 機能を適用
   enableDrag(wrapper);
   enableResize(wrapper, img, handle);
 }
 
-/* --- ドラッグ機能（完成版） --- */
+/* --- ドラッグ機能 --- */
 function enableDrag(wrapper) {
   let isDragging = false;
   let offsetX = 0;
@@ -194,7 +183,7 @@ function enableDrag(wrapper) {
   }
 }
 
-/* --- リサイズ機能（完成版） --- */
+/* --- リサイズ機能 --- */
 function enableResize(wrapper, img, handle) {
   let startX, startY, startSize;
 
@@ -207,7 +196,6 @@ function enableResize(wrapper, img, handle) {
     startX = e.touches ? e.touches[0].clientX : e.clientX;
     startY = e.touches ? e.touches[0].clientY : e.clientY;
 
-    // ✅ 基準サイズ（幅を基準にする）
     startSize = img.offsetWidth;
 
     document.addEventListener("mousemove", resize);
@@ -220,23 +208,17 @@ function enableResize(wrapper, img, handle) {
     const x = e.touches ? e.touches[0].clientX : e.clientX;
     const y = e.touches ? e.touches[0].clientY : e.clientY;
 
-    // ✅ ハンドルの移動距離（斜め方向も含む）
     const diffX = x - startX;
     const diffY = y - startY;
 
-    // ✅ 斜め方向の距離を合成（ピタゴラス）
     const distance = Math.sqrt(diffX * diffX + diffY * diffY);
-
-    // ✅ 上方向に動かしたら大きく、下方向なら小さく
     const direction = diffY < 0 ? 1 : -1;
 
-    // ✅ 新しいサイズ
     const newSize = startSize + distance * direction;
 
-    // ✅ 最小サイズの制限
     if (newSize > 30) {
       img.style.width = newSize + "px";
-      img.style.height = "auto"; // 比率維持
+      img.style.height = "auto";
     }
   }
 
@@ -248,6 +230,7 @@ function enableResize(wrapper, img, handle) {
   }
 }
 
+/* --- 背景色変更 --- */
 document.querySelectorAll(".bg-colors button").forEach(btn => {
   btn.addEventListener("click", () => {
     const color = btn.getAttribute("data-color");
@@ -255,43 +238,30 @@ document.querySelectorAll(".bg-colors button").forEach(btn => {
   });
 });
 
+/* --- ✅ 保存機能（完全版） --- */
+document.getElementById("save-btn").addEventListener("click", function() {
+  const target = document.getElementById("coordinate-area");
 
-</script>
+  const uiButtons = document.querySelectorAll(".delete-btn, .resize-handle");
+  uiButtons.forEach(btn => btn.classList.add("hide-ui"));
 
+  const bgColor = window.getComputedStyle(target).backgroundColor;
 
-<!-- ✅ 保存機能 -->
-<script src="html2canvas"></script>
+  html2canvas(target, {
+    scale: 2,
+    backgroundColor: bgColor,
+    useCORS: true
+  }).then(canvas => {
+    uiButtons.forEach(btn => btn.classList.remove("hide-ui"));
 
-<script>
-function hideControls() {
-  document.querySelectorAll(".delete-btn, .resize-handle").forEach(el => {
-    el.style.display = "none";
-  });
-}
-
-function showControls() {
-  document.querySelectorAll(".delete-btn, .resize-handle").forEach(el => {
-    el.style.display = "block";
-  });
-}
-
-function saveCoordinate() {
-  hideControls();
-
-  html2canvas(document.getElementById("coordinate-area")).then(canvas => {
     const link = document.createElement("a");
-    link.href = canvas.toDataURL();
     link.download = "coordinate.png";
+    link.href = canvas.toDataURL("image/png");
     link.click();
-
-    showControls();
   });
-}
+});
 
-document.getElementById("save-btn").addEventListener("click", saveCoordinate);
 </script>
-
-
 
 </body>
 </html>
