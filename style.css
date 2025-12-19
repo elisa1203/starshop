@@ -299,7 +299,6 @@ color: #ffffff;
   border-radius: 15px;
   position: relative;
   margin: 20px auto;
-  background: rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
 
@@ -439,6 +438,27 @@ display: inline-block;
   gap: 8px;
   margin: 10px 0;
 }
+
+.bg-dot {
+  background-color: #000;
+  background-image:
+    radial-gradient(#fff 10%, transparent 11%),
+    radial-gradient(#fff 10%, transparent 11%);
+     background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+  
+.bg-star {
+  background-color: #000;
+  background-image:
+    url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'>\
+      <text x='0' y='35' font-size='15' fill='white'>★</text>\
+    </svg>");
+  background-size: 50px 50px;
+}
+
+
 
 .bg-colors button {
   font-size: 24px;
