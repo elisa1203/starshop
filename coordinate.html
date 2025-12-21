@@ -34,6 +34,7 @@
       <div class="genre-items" id="tops">
         <img src="adidas-pink-jacket.png" data-slot="top">
         <img src="green-jacket.png" data-slot="top">
+       <img src="purple-border-vknit.png" data-slot="top">
       </div>
 
       <div class="genre-items" id="bottoms" style="display:none;">
@@ -42,14 +43,18 @@
 
       <div class="genre-items" id="bags" style="display:none;">
         <img src="camo-bag.png" data-slot="bag">
+         <img src="pink-dot-bag.png" data-slot="bag">
       </div>
       
 　　<div class="genre-items" id="accessories" style="display:none;">
         <img src="necklace-removebg-preview.png" data-slot="accessories">
+         <img src="layer-egg-necklace.png" data-slot="accessories">
       </div>
       
       <div class="genre-items" id="shoes" style="display:none;">
-        <img src="green-sandals.png" data-slot="shoes">
+         <img src="green-sandals.png" data-slot="shoes">
+         <img src="blue-snake-sandals.png" data-slot="shoes">
+        
       </div>
 
     </div>
@@ -83,34 +88,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script>
-document.getElementById("save-btn").addEventListener("click", function() {
-  const target = document.getElementById("coordinate-area");
 
-  // 削除ボタン・リサイズハンドルを一時的に非表示
-  const uiButtons = document.querySelectorAll(".delete-btn, .resize-handle");
-  uiButtons.forEach(btn => btn.classList.add("hide-ui"));
-
-  // 背景色を取得
-  const bgColor = window.getComputedStyle(target).backgroundColor;
-
-  // html2canvasで撮影
-  html2canvas(target, {
-    scale: 2,
-    backgroundColor: bgColor
-  }).then(canvas => {
-    uiButtons.forEach(btn => btn.classList.remove("hide-ui"));
-
-    const link = document.createElement("a");
-    link.download = "coordinate.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
-  });
-});
-
-
-</script>
-   
-<script>
 /* ✅ 背景色ボタン（色だけ変える） */
 document.querySelectorAll("[data-color]").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -127,7 +105,7 @@ document.querySelectorAll("[data-pattern]").forEach(btn => {
     const area = document.getElementById("coordinate-area");
     const pattern = btn.getAttribute("data-pattern");
 
-    // ✅ 柄だけ切り替える（背景色は消さない）
+    // ✅ 柄だけ切り替える（背景色は残す）
     area.classList.remove("bg-dot", "bg-star");
 
     if (pattern === "dot") area.classList.add("bg-dot");
@@ -135,7 +113,36 @@ document.querySelectorAll("[data-pattern]").forEach(btn => {
   });
 });
 
+/* ✅ 保存機能（背景色＋柄をそのまま保存） */
+document.getElementById("save-btn").addEventListener("click", function() {
+  const target = document.getElementById("coordinate-area");
 
+  // ✅ UIを隠す（削除ボタン・リサイズハンドル）
+  const uiButtons = document.querySelectorAll(".delete-btn, .resize-handle");
+  uiButtons.forEach(btn => btn.classList.add("hide-ui"));
+
+  html2canvas(target, {
+    scale: 2,
+    backgroundColor: null,  // ✅ 背景色＋柄をそのまま保存
+    useCORS: true,
+    allowTaint: true,       // ✅ 柄（gradient）を確実に描画
+    imageTimeout: 0
+  }).then(canvas => {
+
+    // ✅ UIを戻す
+    uiButtons.forEach(btn => btn.classList.remove("hide-ui"));
+
+    // ✅ 保存
+    const link = document.createElement("a");
+    link.download = "coordinate.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+});
+
+</script>
+
+<script>
 /* --- ジャンル切り替え --- */
 document.querySelectorAll(".genre-buttons button").forEach(btn => {
   btn.addEventListener("click", () => {
