@@ -317,6 +317,17 @@ color: #ffffff;
   z-index:1;
 }
 
+.genre-buttons button[data-genre="kimono"]{
+  background-color: #00ffff;
+  color: #000000;
+  border: none;
+}
+
+.genre-buttons button[data-genre="obi"]{
+  background-color: #00ffff;
+  color: #000000;
+  border: none;
+}
 .genre-buttons button {
   width: 100%;
   padding: 10px;
@@ -328,8 +339,9 @@ color: #ffffff;
   cursor: pointer;
 }
 
+
 @media (max-width: 480px) {
-  .genre-buttons button {
+  .clothes-genre-buttons button {
     padding:50px 0;
     font-size: 18px;   /* スマホで見やすく */
   }
@@ -340,6 +352,7 @@ color: #ffffff;
   margin-bottom: 10px;
   cursor: pointer;
 }
+
 
 .top-section {
   width: 100%;
@@ -432,6 +445,7 @@ display: inline-block;
   box-shadow: 0 0 4px #ccc;
   cursor: pointer;
 }
+
 
 .bg-colors {
   display: flex;

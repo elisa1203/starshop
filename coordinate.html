@@ -26,7 +26,10 @@
       <button data-genre="bags">バッグ</button>
     <button data-genre="accessories">アクセサリー</button>
     <button data-genre="shoes">シューズ</button>
+    <button data-genre="kimono">着物</button>
+     <button data-genre="obi">帯</button>
     </div>
+    
 
     <!-- 商品リスト -->
     <div class="item-list">
@@ -54,9 +57,16 @@
       <div class="genre-items" id="shoes" style="display:none;">
          <img src="green-sandals.png" data-slot="shoes">
          <img src="blue-snake-sandals.png" data-slot="shoes">
-        
+      </div>
+      
+        <div class="genre-items" id="kimono" style="display:none;">
+         <img src="black-kimono.png" data-slot="kimono">
       </div>
 
+      <div class="genre-items" id="obi" style="display:none;">
+         <img src="pink-white-obi.png" data-slot="obi">
+      </div>
+      
     </div>
 
   </div>
@@ -177,7 +187,16 @@ function placeItemInSlot(src, slot) {
   img.classList.add("placed-item");
   img.style.position = "absolute";
   img.style.zIndex = "2001";
-  img.style.width = slot === "bag" ? "150px" : "250px";
+  if (slot === "bag") {
+  img.style.width = "150px";
+} else if (slot === "kimono") {
+  img.style.width = "600px";
+} else if (slot === "obi") {
+  img.style.width = "200px";
+} else {
+  img.style.width = "250px";
+}
+
 
   // ✅ 削除ボタン（左上）
   const del = document.createElement("button");
@@ -204,7 +223,9 @@ function placeItemInSlot(src, slot) {
     bottom:{ left: "50%", top: "60%" },
     bag:   { left: "80%", top: "40%" },
     accessories: {left: "60%", top: "40%" },
-     shoes: {left: "40%", top: "80%" } 
+     shoes: {left: "40%", top: "80%" }, 
+     kimono: {left: "5%", top: "5%"}, 
+    obi: {left: "10%", top: "50%" } 
   };
 
   const pos = positions[slot];
