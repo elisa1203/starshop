@@ -21,135 +21,148 @@
       document.body.appendChild(star);
     }
   </script>
+  
+ <button class="sidebar-toggle">←</button>
+
+<div class="sidebar">  
+  <a href="coordinate.html" class="start-btn">コーデを作る</a>  
+ <h2>ジャンル</h2> 
+<div class="genre-list">
+ <button class="genre-btn has-sub" data-target="tops-sub">トップス</button>
+  <div id="tops-sub" class="sub-menu">
+    <a href="tops-tshirt.html">Tシャツ</a>
+    <a href="tops-knit.html">ニット</a>
+    <a href="tops-hoodie.html">パーカー</a>
+    <a href="tops-jacket.html">ジャケット</a>
+  </div>
+
+<button class="genre-btn has-sub" data-target="bottoms-sub">ボトムス</button> 
+  <div id="bottoms-sub" class="sub-menu">
+    <a href="bottoms-jeans.html">ジーンズ</a>
+    <a href="bottoms-shortpants.html">短パン</a>
+    <a href="bottoms-skirt.html">スカート</a>
+  </div>
+ <button class="genre-btn has-sub" data-target="accessories-sub"> アクセサリー</button> 
+ <div id="accessories-sub" class="sub-menu">
+    <a href="accessories-bag.html">バッグ</a>
+    <a href="accessories-necklace.html">ネックレス</a>
+    <a href="accessories-bracelet.html">ブレスレット</a>
+  </div>
+  <button class="genre-btn has-sub" data-target="shoes-sub">シューズ</button> 
+ <div id="shoes-sub" class="sub-menu">
+    <a href="shoes-sandals.html">サンダル</a>
+</div>
+</div>
+</div>
+
+<div class="main-content">
+<div id="product-list"></div>
+</div>
 
 
  <div class="top-section">
-  <!-- 商品一覧 -->
-  <div class="clothes-container">
+<h3 class="glow-title">🆕 新着商品 🆕</h3>
+<div class="new-arrivals"></div>
 
-    <div class="clothes-item">
-      <img src="green-jacket.png" class="item-photo"  alt="olivegreen jacket" >
-      <h3 class="item-name">olivegreen jacket</h3>
-      <p class="item-price">¥4000</p>
-       
-      <a href="https://jp.mercari.com/item/m76952233578"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
-    </div>
-
-    <div class="clothes-item">
-      <img src="adidas-pink-jacket.png" class="item-photo" alt="babypink adidads jacket" >
-      <h3 class="item-name">babypink adidads jacket</h3>
-      <p class="item-price">¥3000</p>
-
-      <a href="https://jp.mercari.com/item/m39260487369"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
-    </div>
-
-    <div class="clothes-item">
-      <img src="necklace-removebg-preview.png" class="item-photo" alt="silver and black chain necklace" >
-      <h3 class="item-name">silver and black chain necklace</h3>
-      <p class="item-price">¥1000</p>
-
-      <a href="https://jp.mercari.com/item/m69095975484"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
+  
+  
     </div>
     
-    <div class="clothes-item">
-      <img src="ribbon-flare.png" class="item-photo" alt="ribbon flare jeans" >
-      <h3 class="item-name">ribbon flare jeans</h3>
-      <p class="item-price">¥5000</p>
+   
+  
 
-      <a href="https://jp.mercari.com/item/m95234880849"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
-    </div>
-    
-    <div class="clothes-item">
-      <img src="camo-bag.png" class="item-photo" alt="camo-bag" >
-      <h3 class="item-name">camo bag</h3>
-      <p class="item-price">¥7500</p>
+<script>
+async function loadProductsFrom(page) {
+  const res = await fetch(page);
+  const text = await res.text();
 
-      <a href="https://jp.mercari.com/item/m89147939311"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
-    </div>
-    
-     <div class="clothes-item">
-      <img src="green-sandals.png" class="item-photo" alt="green-sandals" >
-      <h3 class="item-name">green chunky heel sandals</h3>
-      <p class="item-price">¥1500</p>
+  // HTML を仮の DOM として読み込む
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text, "text/html");
 
-      <a href="https://jp.mercari.com/item/m28911164887"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
-    </div>
-    
-     <div class="clothes-item">
-      <img src="pinkpanther-t.png" class="item-photo" alt="pink panther t-shirt" >
-      <h3 class="item-name">Pink Panther beaded T </h3>
-      <p class="item-price">¥2500</p>
+  // 商品を全部取得
+  return [...doc.querySelectorAll(".product-item")];
+}
 
-      <a href="https://jp.mercari.com/item/m62563614238"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
-    </div>
-    
-    <div class="clothes-item">
-      <img src="purple-border-vknit.png" class="item-photo" alt="purple border v neck knit" >>
-      <h3 class="item-name">purple border v knit </h3>
-      <p class="item-price">¥3000</p>
+async function loadAllProducts() {
+  const pages = ["tops.html", "bottoms.html", "accessories.html"];
+  let allProducts = [];
 
-      <a href="https://jp.mercari.com/item/m20636141764"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
-    </div>
-    
-     <div class="clothes-item">
-      <img src="pink-dot-bag.png" class="item-photo" alt="pink dot bag" >
-      <h3 class="item-name">pink dot fluffy bag</h3>
-      <p class="item-price">¥1000</p>
+  for (const page of pages) {
+    const items = await loadProductsFrom(page);
+    allProducts.push(...items);
+  }
 
-      <a href="https://jp.mercari.com/item/m35419335108"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
-    </div>
-    
-    <div class="clothes-item">
-      <img src="blue-snake-sandals.png" class="item-photo" alt="blue snake skin sandals" >
-      <h3 class="item-name">blue snake sandals</h3>
-      <p class="item-price">¥1000</p>
+  return allProducts;
+}
 
-      <a href="https://jp.mercari.com/item/m17473056204"
-         target="_blank"
-         class="buy-btn">
-        メルカリで購入する
-      </a>
-    </div>
-    
-    </div>
-    
-    <a href="coordinate.html" class="start-btn">コーデを作る</a>
+loadAllProducts().then(products => {
+  const today = new Date();
+  const container = document.querySelector(".new-arrivals");
+
+  products.forEach(item => {
+    const added = new Date(item.dataset.added);
+    const diff = (today - added) / (1000 * 60 * 60 * 24);
+
+    if (diff <= 1) {
+      container.appendChild(item.cloneNode(true));
+    }
+  });
+});
+ 
+const toggleBtn = document.querySelector(".sidebar-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("active");
+  toggleBtn.classList.toggle("active");
+   if (sidebar.classList.contains("active")) {
+    toggleBtn.textContent = "→";  // 開いたら → に
+  } else {
+    toggleBtn.textContent = "←";  // 閉じたら ← に
+  }
+});
+
+  const products = [
+  { name: "olivegreen jacket", genre: "tops" },
+  { name: "babypink adidads jacket", genre: "tops" },
+  { name: "", genre: "accessories" },
+  { name: "スニーカー", genre: "shoes" },
+  { name: "黒いTシャツ", genre: "tops" },
+  { name: "ロングスカート", genre: "bottoms" }
+];
+
+const genreButtons = document.querySelectorAll(".genre-list button");
+const productList = document.getElementById("product-list");
+
+genreButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const genre = btn.dataset.genre;
+
+    // 絞り込み
+    const filtered = products.filter(item => item.genre === genre);
+
+    // 表示
+    productList.innerHTML = filtered
+      .map(item => `<div class="product-item">${item.name}</div>`)
+      .join("");
+  });
+});
+
+document.querySelectorAll(".has-sub").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.dataset.target;
+    const subMenu = document.getElementById(targetId);
+
+    if (subMenu.style.display === "block") {
+      subMenu.style.display = "none";
+    } else {
+      subMenu.style.display = "block";
+    }
+  });
+});
+
+</script>
 
 </body>
 

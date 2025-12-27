@@ -63,6 +63,129 @@ color: #ffffff;
   from { transform: translate(0, 0); opacity: 1; } 
   to { transform: translate(500px, 500px); opacity: 0;  }
    }
+  
+.glow-title {
+  color: #ff66cc;
+  font-size: 26px;
+  text-align: center;
+  margin: 20px 0;
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.6))
+    drop-shadow(0 0 14px rgba(255, 255, 255, 0.35))
+    drop-shadow(0 0 22px rgba(255, 255, 255, 0.2));
+  transition: 0.3s ease; 
+}
+
+
+  /* サイドバー（最初は隠す） */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #ffe0f0;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -255px; /* ← 最初は隠す */
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  z-index: 9999;
+}
+
+/* 表示状態 */
+.sidebar.active {
+  left: 0;
+}
+
+.genre-btn {
+  display: block;
+  width: 105%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background:  linear-gradient(to right, #ff66cc, #ffb3e6);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: left;
+  cursor:pointer;
+  outline: none;
+  border:none;
+}  
+
+.genre-btn:hover {
+  background: linear-gradient(to right, #ff33bb, #ff99dd);
+}
+
+.sub-menu {
+  display: none;
+  margin-left: 10px;
+   padding-left: 0;
+  list-style: none;
+}
+
+.sub-menu a {
+  display: block;
+  padding: 8px;
+  margin-bottom: 8px;
+  background: #ffd6f2;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+}
+
+
+.product-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #ffe6f5;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+/* ← ボタン */
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  background: #ff66cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.sidebar-toggle.active {
+  left: 240px; /* ← サイドバー幅 + 余白 */
+}
+.sidebar h2 {
+  margin-bottom: 20px;
+  color: #ff66cc;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.main-content {
+  margin-left: 220px; /* サイドバーの幅 + 余白 */
+  padding: 20px;
+}
+
+
    
     .clothes-container { 
     display: grid; 

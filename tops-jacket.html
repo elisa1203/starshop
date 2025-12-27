@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <meta charset="UTF-8"> 
+  <h1>✩✩✩✩✩</h1> 
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <!-- 星アニメーション -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.textContent = "✩";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = -(Math.random() * 500) + "px";
+      star.style.fontSize = (10 + Math.random() * 30) + "px";
+      document.body.appendChild(star);
+    }
+    </script>
+     <div class="clothes-container"> 
+ <div class="clothes-item" data-added="2025-12-27">
+      <img src="green-jacket.png" class="item-photo"  alt="olivegreen jacket" >
+      <h3 class="item-name">olivegreen jacket</h3>
+      <p class="item-price">¥4000</p>
+       
+      <a href="https://jp.mercari.com/item/m76952233578"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+    </div>
+    
+    <div class="clothes-item" data-added="2025-12-27">
+      <img src="adidas-pink-jacket.png" class="item-photo" alt="babypink adidads jacket" >
+      <h3 class="item-name">babypink adidads jacket</h3>
+      <p class="item-price">¥3000</p>
+
+      <a href="https://jp.mercari.com/item/m39260487369"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+    </div>
+
+    </div>
+    </body>
