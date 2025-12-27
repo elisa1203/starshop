@@ -81,7 +81,7 @@ async function loadProductsFrom(page) {
   const doc = parser.parseFromString(text, "text/html");
 
   // 商品を全部取得
-  return [...doc.querySelectorAll(".product-item")];
+  return [...doc.querySelectorAll(".clothes-item")];
 }
 
 async function loadAllProducts() {
