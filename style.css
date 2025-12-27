@@ -495,7 +495,7 @@ color: #ffffff;
 
 .canvas-section {
   width: 50vw;
-  height:150vw
+  height:150vw;
   display: flex;
   justify-content: center;
 }
@@ -626,4 +626,8 @@ display: inline-block;
 
 .hide-ui {
   display: none !important;
+}
+
+html, body {
+  overflow-x: hidden;
 }
