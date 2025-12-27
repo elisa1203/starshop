@@ -190,7 +190,13 @@ color: #ffffff;
     grid-template-columns: repeat(3, 1fr); 
     gap: 20px; 
     padding: 20px; } 
-   
+    
+   @media (max-width: 600px) {
+  .new-arrivals {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
     .clothes-container { 
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
