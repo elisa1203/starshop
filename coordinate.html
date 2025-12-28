@@ -38,6 +38,8 @@
         <img src="adidas-pink-jacket.png" data-slot="top">
         <img src="green-jacket.png" data-slot="top">
        <img src="purple-border-vknit.png" data-slot="top">
+      <img src="pink-kawaii-winter-top.png" data-slot="top"> 
+          <img src="pink-v-t.png" data-slot="top"> 
       </div>
 
       <div class="genre-items" id="bottoms" style="display:none;">
@@ -231,7 +233,7 @@ function placeItemInSlot(src, slot) {
   const pos = positions[slot];
   wrapper.style.left = pos.left;
   wrapper.style.top = pos.top;
-  //wrapper.style.transform = "translate(-50%, -50%)";
+  wrapper.style.transform = "translate(-50%, -50%)";
 
   // ✅ 機能を適用
   enableDrag(wrapper);
