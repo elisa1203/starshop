@@ -7,6 +7,16 @@ padding: 25px 20px;
 /* 白いロゴ文字 */ 
 color: #ffffff; 
 
+.title-link {
+  text-decoration: none;
+  color: inherit; /* 元の色をそのまま使う */
+  cursor: pointer;
+}
+
+.title-link:hover {
+  opacity: 0.7;
+}
+
 /* ロゴっぽい立体感と光 */
  text-shadow: 
  0 0 8px #ffffff, 

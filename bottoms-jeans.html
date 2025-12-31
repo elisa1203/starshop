@@ -21,7 +21,7 @@
     }
   </script>
   
- <button class="sidebar-toggle">←</button>
+   <button class="sidebar-toggle">←</button>
 
 <div class="sidebar">  
   <a href="coordinate.html" class="start-btn">コーデを作る</a>  
@@ -54,58 +54,36 @@
 </div>
 </div>
 
+   <div class="clothes-container">
+   <div class="clothes-item" data-added="2025-12-31">
+      <img src="ribbon-flare.png" class="item-photo" alt="ribbon flare jeans" >
+      <h3 class="item-name">ribbon flare jeans</h3>
+      <p class="item-price">¥5000</p>
 
- <div class="top-section">
-<h3 class="glow-title">🆕 新着商品 🆕</h3>
-<div class="new-arrivals"></div>
+      <a href="https://jp.mercari.com/item/m95234880849"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+      </div>
+ 
+   <div class="clothes-item" data-added="2025-12-31">
+      <img src="flare-redstitch-jeans.png" class="item-photo" alt="red stitch flare jeans" >
+      <h3 class="item-name">red stitch flare jeans</h3>
+      <p class="item-price">¥3500</p>
 
-  
-  
+      <a href="https://jp.mercari.com/item/m39200957205"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
     </div>
     
-   
-  
-
-<script>
-async function loadProductsFrom(page) {
-  const res = await fetch(page);
-  const text = await res.text();
-
-  // HTML を仮の DOM として読み込む
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(text, "text/html");
-
-  // 商品を全部取得
-  return [...doc.querySelectorAll(".clothes-item")];
-}
-
-async function loadAllProducts() {
-  const pages = ["tops-tshirt.html", "tops-knit.html", "tops-hoodie.html", "tops-jacket.html"];
-  let allProducts = [];
-
-  for (const page of pages) {
-    const items = await loadProductsFrom(page);
-    allProducts.push(...items);
-  }
-
-  return allProducts;
-}
-
-loadAllProducts().then(products => {
-  const today = new Date();
-  const container = document.querySelector(".new-arrivals");
-
-  products.forEach(item => {
-    const added = new Date(item.dataset.added);
-    const diff = (today - added) / (1000 * 60 * 60 * 24);
-
-    if (diff <= 7) {
-      container.appendChild(item.cloneNode(true));
-    }
-  });
-});
- 
-const toggleBtn = document.querySelector(".sidebar-toggle");
+    </div>
+    
+    
+    <script>
+    const toggleBtn = document.querySelector(".sidebar-toggle");
 const sidebar = document.querySelector(".sidebar");
 
 toggleBtn.addEventListener("click", () => {
@@ -156,7 +134,6 @@ document.querySelectorAll(".has-sub").forEach(btn => {
     }
   });
 });
-
 </script>
 
 </body>
