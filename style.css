@@ -131,7 +131,6 @@ color: #ffffff;
 .genre-btn[data-target="kimono-sub"] {
   background: linear-gradient(to right, #3b82f6 0%, #60a5fa 40%, #ffffff 100%) !important;
   color: #ffffff !important;
-  font-weight: bold;
 }
 
 .genre-btn[data-target="kimono-sub"]:hover {
