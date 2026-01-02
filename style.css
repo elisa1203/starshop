@@ -7,6 +7,7 @@ padding: 25px 20px;
 /* 白いロゴ文字 */ 
 color: #ffffff; 
 
+
 .title-link {
   text-decoration: none;
   color: inherit; /* 元の色をそのまま使う */
@@ -106,6 +107,7 @@ color: #ffffff;
   left: 0;
 }
 
+
 .genre-btn {
   display: block;
   width: 105%;
@@ -125,6 +127,20 @@ color: #ffffff;
 .genre-btn:hover {
   background: linear-gradient(to right, #ff33bb, #ff99dd);
 }
+
+.genre-btn[data-target="kimono-sub"] {
+  background: linear-gradient(to right, #3b82f6 0%, #60a5fa 40%, #ffffff 100%) !important;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.genre-btn[data-target="kimono-sub"]:hover {
+  background: linear-gradient(to right, #1e40af 0%, #3b82f6 40%, #ffffff 100%) !important;
+  color: #ffffff !important;
+}
+
+
+
 
 .sub-menu {
   display: none;
@@ -252,6 +268,23 @@ color: #ffffff;
        margin-bottom: 10px; 
        } 
        
+       .clothes-item {
+  position: relative; /* ← これが重要 */
+}
+
+.sold-out {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size:14px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
        .buy-btn { 
        display: inline-block; 
        background: #ff66cc; 
