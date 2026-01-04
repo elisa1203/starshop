@@ -128,12 +128,14 @@ color: #ffffff;
   background: linear-gradient(to right, #ff33bb, #ff99dd);
 }
 
-.genre-btn[data-target="kimono-sub"] {
+.genre-btn[data-target="kimono-sub"],
+.genre-btn[data-target="obi-sub"] {
   background: linear-gradient(to right, #3b82f6 0%, #60a5fa 40%, #ffffff 100%) !important;
   color: #ffffff !important;
 }
 
-.genre-btn[data-target="kimono-sub"]:hover {
+.genre-btn[data-target="kimono-sub"]:hover,
+.genre-btn[data-target="obi-sub"]:hover{
   background: linear-gradient(to right, #1e40af 0%, #3b82f6 40%, #ffffff 100%) !important;
   color: #ffffff !important;
 }
