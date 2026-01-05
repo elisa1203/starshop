@@ -1,4 +1,3 @@
-<!DOCTYPE html> 
 <html>
 <head>
   <meta charset="UTF-8"> 
@@ -19,9 +18,9 @@
       star.style.fontSize = (10 + Math.random() * 30) + "px";
       document.body.appendChild(star);
     }
-    </script>
-    
-     <button class="sidebar-toggle">←</button>
+  </script>
+  
+   <button class="sidebar-toggle">←</button>
 
 <div class="sidebar">  
   <a href="coordinate.html" class="start-btn">コーデを作る</a>  
@@ -51,30 +50,50 @@
  <div id="shoes-sub" class="sub-menu">
     <a href="shoes-sandals.html">サンダル</a>
 </div>
- <button class="genre-btn has-sub" data-target="kimono-sub">きもの</button> 
+  <button class="genre-btn has-sub" data-target="kimono-sub">きもの</button> 
   <div id="kimono-sub" class="sub-menu">
     <a href="all-kimono.html">全きもの</a>
 </div>
 <button class="genre-btn has-sub" data-target="obi-sub">帯</button>
  <div id="obi-sub" class="sub-menu">
-    <a href="all-obi.html">全帯</a>
+    <a href="hukuro-obi.html">全帯</a>
 </div>
 </div>
 </div>
 
-     <div class="clothes-container"> 
-  <div class="clothes-item" data-added="2025-12-28">
-      <img src="pink-kawaii-winter-top.png" class="item-photo" alt="pink kawaii winter hoodie" >
-      <h3 class="item-name">pink kawaii winter hoodie</h3>
-      <p class="item-price">¥1000</p>
+   <div class="clothes-container">
+   <div class="clothes-item" data-added="2026-1-1">
+   <span class="sold-out">SOLD OUT</span>
+      <img src="plant-pattern-kimono2.png" class="item-photo" alt="plant pattern kimono" >
+      <h3 class="item-name">plant pattern kimono</h3>
+      <p class="item-price">¥4000</p>
 
-      <a href="https://jp.mercari.com/item/m18694082476"
+      <a href="https://jp.mercari.com/item/m62872804789"
          target="_blank"
          class="buy-btn">
         メルカリで購入する
       </a>
+      </div>
+      
+     <div class="clothes-item" data-added="2026-1-2">
+   <span class="sold-out">SOLD OUT</span>
+      <img src="black-flower-pattern-kimono.png" class="item-photo" alt="black flower pattern kimono" >
+      <h3 class="item-name">plant pattern kimono</h3>
+      <p class="item-price">¥3000</p>
+
+      <a href="https://jp.mercari.com/item/m25555586018"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+      </div> 
+  
+      
+ 
+   
     </div>
-    </div>
+    
+    
     <script>
     const toggleBtn = document.querySelector(".sidebar-toggle");
 const sidebar = document.querySelector(".sidebar");
@@ -89,7 +108,6 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-  
 
 document.querySelectorAll(".has-sub").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -105,6 +123,6 @@ document.querySelectorAll(".has-sub").forEach(btn => {
 });
 </script>
 
-    </body>
-    
-    </html>
+</body>
+
+</html>

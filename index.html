@@ -51,14 +51,13 @@
  <div id="shoes-sub" class="sub-menu">
     <a href="shoes-sandals.html">サンダル</a>
 </div>
- <button class="genre-btn has-sub" data-target="kimono-sub">きもの</button>
+  <button class="genre-btn has-sub" data-target="kimono-sub">きもの</button> 
  <div id="kimono-sub" class="sub-menu">
-    <a href="casual-kimono.html">カジュアル</a>
+    <a href="all-kimono.html">全きもの</a>
 </div>
 <button class="genre-btn has-sub" data-target="obi-sub">帯</button>
  <div id="obi-sub" class="sub-menu">
-    <a href="hukuro-obi.html">袋帯</a>
-    <a href="nagoya-obi.html">名古屋帯</a>
+    <a href="all-obi.html">全帯</a>
 </div>
 </div>
 </div>
@@ -68,14 +67,7 @@
 <h3 class="glow-title">🆕 新着商品 🆕</h3>
 <div class="new-arrivals"></div>
 
-  
-  
-    </div>
-    
-   
-  
-
-<script>
+   <script>
 async function loadProductsFrom(page) {
   const res = await fetch(page);
   const text = await res.text();
@@ -97,9 +89,9 @@ async function loadAllProducts() {
   "bottoms-jeans.html",
   "bottoms-shortpants.html",
   "bottoms-skirt.html",
-  "casual-kimono.html",
   "accessories-bag.html",
-  "hukuro-obi.html"];
+  "all-kimono.html",
+  "all-obi.html"];
   let allProducts = [];
 
   for (const page of pages) {
@@ -123,6 +115,18 @@ loadAllProducts().then(products => {
     }
   });
 });
+ async function loadAllProducts() { 
+ const pages = [ 
+ "kimono.html" // ← これだけ読み込めばOK 
+ ];
+  let allProducts = []; 
+  
+  for (const page of pages) { 
+  const items = await loadProductsFrom(page); 
+  allProducts.push(...items); 
+  } 
+  return allProducts; 
+  }
  
 const toggleBtn = document.querySelector(".sidebar-toggle");
 const sidebar = document.querySelector(".sidebar");
@@ -152,6 +156,10 @@ document.querySelectorAll(".has-sub").forEach(btn => {
 });
 
 </script>
+  
+
+
+
 
 </body>
 

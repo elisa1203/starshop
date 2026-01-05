@@ -50,9 +50,15 @@
  <div id="shoes-sub" class="sub-menu">
     <a href="shoes-sandals.html">サンダル</a>
 </div>
- <button class="genre-btn has-sub" data-target="kimono-sub">きもの</button> 
- <div id="kimono-sub" class="sub-menu">
-    <a href="casual-kimono.html">カジュアル</a>
+  <button class="genre-btn has-sub" data-target="kimono-sub">きもの</button> 
+  <div id="kimono-sub" class="sub-menu">
+    <a href="flower-kimono.html">花g</a>
+    <a href="-kimono.html">小紋</a>
+</div>
+<button class="genre-btn has-sub" data-target="obi-sub">帯</button>
+ <div id="obi-sub" class="sub-menu">
+    <a href="hukuro-obi.html">袋帯</a>
+    <a href="nagoya-obi.html">名古屋帯</a>
 </div>
 </div>
 </div>
@@ -104,20 +110,6 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-
-genreButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const genre = btn.dataset.genre;
-
-    // 絞り込み
-    const filtered = products.filter(item => item.genre === genre);
-
-    // 表示
-    productList.innerHTML = filtered
-      .map(item => `<div class="product-item">${item.name}</div>`)
-      .join("");
-  });
-});
 
 document.querySelectorAll(".has-sub").forEach(btn => {
   btn.addEventListener("click", () => {
