@@ -228,8 +228,8 @@ color: #ffffff;
    @media (max-width: 600px) {
  .new-arrivals {
     grid-template-columns: repeat(2, 1fr);
+   display: block; 
   }
-}
 
     .clothes-container { 
     display: grid; 
