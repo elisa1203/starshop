@@ -115,18 +115,6 @@ loadAllProducts().then(products => {
     }
   });
 });
- async function loadAllProducts() { 
- const pages = [ 
- "kimono.html" // ← これだけ読み込めばOK 
- ];
-  let allProducts = []; 
-  
-  for (const page of pages) { 
-  const items = await loadProductsFrom(page); 
-  allProducts.push(...items); 
-  } 
-  return allProducts; 
-  }
  
 const toggleBtn = document.querySelector(".sidebar-toggle");
 const sidebar = document.querySelector(".sidebar");
