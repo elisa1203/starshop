@@ -70,7 +70,6 @@
    <script>
 async function loadProductsFrom(page) {
   const res = await fetch(page);
-  console.log("loading:", page, res.status);
   const text = await res.text();
 
   // HTML を仮の DOM として読み込む
