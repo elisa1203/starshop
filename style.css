@@ -217,12 +217,12 @@ color: #ffffff;
 }
 
 .new-arrivals {
-    display: flex;
+    display: grid;
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px; 
     padding: 20px; 
-    height: auto !important; /* ← 高さを固定しない */ 
-    overflow: visible !important; /* ← 下が切れないようにする */
+    height: auto; 
+    overflow: visible;
     } 
     
    @media (max-width: 600px) {
