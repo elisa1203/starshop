@@ -221,30 +221,19 @@ color: #ffffff;
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px; 
     padding: 20px; 
-    height: auto; 
-    overflow: visible;
     } 
     
-  @media (max-width: 600px) {
-  .new-arrivals {
-    display: grid !important;                 /* ← スマホではグリッドを使う */
-    grid-template-columns: repeat(2, 1fr) !important; /* ← 2列にする */
-    gap: 15px;
-  }
-
-  .new-arrivals .clothes-item {
-    width: 100% !important;   /* ← カードが2列に収まるように */
-    margin: 0 auto;
+   @media (max-width: 600px) {
+ .new-arrivals {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-
 
     .clothes-container { 
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px; 
-    padding: 20px; 
-    } 
+    padding: 20px; } 
     
    .clothes-item {
   width: 100%;
