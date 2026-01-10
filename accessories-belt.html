@@ -1,4 +1,3 @@
-<!DOCTYPE html> 
 <html>
 <head>
   <meta charset="UTF-8"> 
@@ -21,7 +20,7 @@
     }
   </script>
   
- <button class="sidebar-toggle">←</button>
+   <button class="sidebar-toggle">←</button>
 
 <div class="sidebar">  
  <h2>ジャンル</h2> 
@@ -45,13 +44,12 @@
     <a href="accessories-bag.html">バッグ</a>
     <a href="accessories-necklace.html">ネックレス</a>
     <a href="accessories-bracelet.html">ブレスレット</a>
-     <a href="accessories-belt.html">ベルト</a>
   </div>
   <button class="genre-btn has-sub" data-target="shoes-sub">シューズ</button> 
  <div id="shoes-sub" class="sub-menu">
     <a href="shoes-sandals.html">サンダル</a>
 </div>
-  <button class="genre-btn has-sub" data-target="kimono-sub">きもの</button> 
+ <button class="genre-btn has-sub" data-target="kimono-sub">きもの</button> 
  <div id="kimono-sub" class="sub-menu">
     <a href="all-kimono.html">全きもの</a>
 </div>
@@ -62,64 +60,37 @@
 </div>
 </div>
 
+   <div class="clothes-container">
 
- <div class="top-section">
-<h3 class="glow-title">🆕 新着商品 🆕</h3>
-<div class="new-arrivals"></div>
+<div class="clothes-item" data-added="2026-01-10">
+      <img src="red-leather-belt.png" class="item-photo" alt="red leather belt" >
+      <h3 class="item-name">red leather belt</h3>
+      <p class="item-price">¥3500</p>
 
-   <script>
-async function loadProductsFrom(page) {
-  const res = await fetch(page);
-  const text = await res.text();
+      <a href="https://jp.mercari.com/item/m16784791137"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+      </div>
+      
+ <div class="clothes-item" data-added="2026-01-10">
+      <img src="star-white-belt.png" class="item-photo" alt="stars white leather belt">
+      <h3 class="item-name">stars white leather belt</h3>
+      <p class="item-price">¥16,500</p>
 
-  // HTML を仮の DOM として読み込む
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(text, "text/html");
-
-  // 商品を全部取得
-  return [...doc.querySelectorAll(".clothes-item")];
-}
-
-async function loadAllProducts() {
-  const pages = [
-  "tops-tshirt.html", 
-  "tops-knit.html", 
-  "tops-hoodie.html", 
-  "tops-jacket.html", 
-  "bottoms-jeans.html",
-  "bottoms-shortpants.html",
-  "bottoms-skirt.html",
-  "accessories-bag.html",
-  "all-kimono.html",
- "all-obi.html",
-"shoes-sandals.html",
-"accessories-belt.html"
-  ];
-  let allProducts = [];
-
-  for (const page of pages) {
-    const items = await loadProductsFrom(page);
-    allProducts.push(...items);
-  }
-
-  return allProducts;
-}
-
-loadAllProducts().then(products => {
-  const today = new Date();
-  const container = document.querySelector(".new-arrivals");
-
-  products.forEach(item => {
-    const added = new Date(item.dataset.added);
-    const diff = (today - added) / (1000 * 60 * 60 * 24);
-
-    if (diff <= 7) {
-      container.appendChild(item.cloneNode(true));
-    }
-  });
-});
- 
-const toggleBtn = document.querySelector(".sidebar-toggle");
+      <a href="https://jp.mercari.com/item/m96087515940"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+      </div>
+      
+  </div>
+    
+    
+    <script>
+    const toggleBtn = document.querySelector(".sidebar-toggle");
 const sidebar = document.querySelector(".sidebar");
 
 toggleBtn.addEventListener("click", () => {
@@ -145,12 +116,7 @@ document.querySelectorAll(".has-sub").forEach(btn => {
     }
   });
 });
-
 </script>
-  
-
-
-
 
 </body>
 
