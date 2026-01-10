@@ -1,0 +1,159 @@
+<html>
+<head>
+  <meta charset="UTF-8"> 
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<h1><a href="index.html" class="title-link">✩✩✩✩✩</a></h1>
+  <!-- 星アニメーション -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.textContent = "✩";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = -(Math.random() * 500) + "px";
+      star.style.fontSize = (10 + Math.random() * 30) + "px";
+      document.body.appendChild(star);
+    }
+  </script>
+  
+   <button class="sidebar-toggle">←</button>
+
+<div class="sidebar">  
+ <h2>ジャンル</h2> 
+<div class="genre-list">
+ <button class="genre-btn has-sub" data-target="tops-sub">トップス</button>
+  <div id="tops-sub" class="sub-menu">
+    <a href="tops-tshirt.html">Tシャツ</a>
+    <a href="tops-knit.html">ニット</a>
+    <a href="tops-hoodie.html">パーカー</a>
+    <a href="tops-jacket.html">ジャケット</a>
+  </div>
+
+<button class="genre-btn has-sub" data-target="bottoms-sub">ボトムス</button> 
+  <div id="bottoms-sub" class="sub-menu">
+    <a href="bottoms-jeans.html">ジーンズ</a>
+    <a href="bottoms-shortpants.html">短パン</a>
+    <a href="bottoms-skirt.html">スカート</a>
+  </div>
+ <button class="genre-btn has-sub" data-target="accessories-sub"> アクセサリー</button> 
+ <div id="accessories-sub" class="sub-menu">
+    <a href="accessories-bag.html">バッグ</a>
+    <a href="accessories-necklace.html">ネックレス</a>
+    <a href="accessories-bracelet.html">ブレスレット</a>
+  </div>
+  <button class="genre-btn has-sub" data-target="shoes-sub">シューズ</button> 
+ <div id="shoes-sub" class="sub-menu">
+    <a href="shoes-sandals.html">サンダル</a>
+</div>
+ <button class="genre-btn has-sub" data-target="kimono-sub">きもの</button> 
+ <div id="kimono-sub" class="sub-menu">
+    <a href="all-kimono.html">全きもの</a>
+</div>
+<button class="genre-btn has-sub" data-target="obi-sub">帯</button>
+ <div id="obi-sub" class="sub-menu">
+    <a href="all-obi.html">全帯</a>
+</div>
+</div>
+</div>
+
+   <div class="clothes-container">
+
+<div class="clothes-item" data-added="2026-01-10">
+      <img src="starfish-gold-necklace.png" class="item-photo" alt="starfish gold necklace" >
+      <h3 class="item-name">starfish gold necklace</h3>
+      <p class="item-price">¥3500</p>
+
+      <a href="https://jp.mercari.com/item/m96662220964"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+      </div>
+      
+ <div class="clothes-item" data-added="2026-01-10">
+      <img src="black-silver-necklace.png" class="item-photo" alt="black shapes siliver necklace">
+      <h3 class="item-name">black shapes silver necklace</h3>
+      <p class="item-price">¥1000</p>
+
+      <a href="https://jp.mercari.com/item/m69095975484"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+      </div>
+      
+    <div class="clothes-item" data-added="2026-01-10">
+      <img src="beads-orange-gray-necklace.png" class="item-photo" alt="beads orange gray necklace">
+      <h3 class="item-name">beads orange gray necklace</h3>
+      <p class="item-price">¥3000</p>
+
+      <a href="https://jp.mercari.com/item/m99914700374"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+      </div>
+      
+      <div class="clothes-item" data-added="2026-01-10">
+      <img src="cross-swarovski-necklace.png" class="item-photo" alt="cross swarovski silver necklace">
+      <h3 class="item-name">cross swarovski silver necklace</h3>
+      <p class="item-price">¥3000</p>
+
+      <a href="https://jp.mercari.com/item/m69167040514"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+      </div>
+      
+      <div class="clothes-item" data-added="2026-01-10">
+      <img src="layer-egg-necklace.png" class="item-photo" alt="layered egg shape necklace">
+      <h3 class="item-name">layered egg shape necklace</h3>
+      <p class="item-price">¥2500</p>
+
+      <a href="https://jp.mercari.com/item/m77845594951"
+         target="_blank"
+         class="buy-btn">
+        メルカリで購入する
+      </a>
+      </div>
+      
+  </div>
+    
+    
+    <script>
+    const toggleBtn = document.querySelector(".sidebar-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("active");
+  toggleBtn.classList.toggle("active");
+   if (sidebar.classList.contains("active")) {
+    toggleBtn.textContent = "→";  // 開いたら → に
+  } else {
+    toggleBtn.textContent = "←";  // 閉じたら ← に
+  }
+});
+
+
+document.querySelectorAll(".has-sub").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.dataset.target;
+    const subMenu = document.getElementById(targetId);
+
+    if (subMenu.style.display === "block") {
+      subMenu.style.display = "none";
+    } else {
+      subMenu.style.display = "block";
+    }
+  });
+});
+</script>
+
+</body>
+
+</html>
