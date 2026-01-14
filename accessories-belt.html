@@ -63,7 +63,7 @@
    <div class="clothes-container">
 
 <div class="clothes-item" data-added="2026-01-10">
-      <img src="red-leather-belt.png" class="item-photo" alt="red leather belt" >
+      <img src="red-leather-belt.png" loading="lazy" class="item-photo" alt="red leather belt" >
       <h3 class="item-name">red leather belt</h3>
       <p class="item-price">¥3500</p>
 
@@ -75,7 +75,7 @@
       </div>
       
  <div class="clothes-item" data-added="2026-01-10">
-      <img src="star-white-belt.png" class="item-photo" alt="stars white leather belt">
+      <img src="star-white-belt.png" loading="lazy" class="item-photo" alt="stars white leather belt">
       <h3 class="item-name">stars white leather belt</h3>
       <p class="item-price">¥16,500</p>
 
@@ -116,6 +116,19 @@ document.querySelectorAll(".has-sub").forEach(btn => {
     }
   });
 });
+
+const targets = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+targets.forEach(target => observer.observe(target));
+
 </script>
 
 </body>
